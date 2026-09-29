@@ -1,0 +1,16 @@
+.admin { max-width: 720px; }
+.for-teacher { font-size: 16px; font-weight: 700; color: var(--ink-soft); margin-left: 6px; }
+.panel { background: var(--card); border: 2px solid var(--line); border-radius: 24px; padding: 18px; margin-top: 16px; }
+.panel[hidden] { display: none; }
+.pin-input { width: 100%; min-height: 56px; margin: 8px 0 12px; padding: 0 14px; border: 3px solid var(--ink); border-radius: 16px; font-size: 22px; }
+.a-btn { min-height: 52px; padding: 0 20px; border: 2px solid var(--line); border-radius: 14px; background: #fff; color: var(--ink); font-size: 18px; font-weight: 800; cursor: pointer; }
+.a-btn.primary { background: var(--ink); border-color: var(--ink); color: #fff; width: 100%; }
+.a-btn.danger { background: var(--red); border-color: var(--red); color: #fff; }
+.a-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.a-row .total { flex: 1 1 auto; margin: 0; }
+.a-list { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 8px; }
+.a-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 14px; border: 2px solid var(--line); }
+.a-item .a-name { flex: 1; font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.a-item .a-team { font-weight: 800; }
+.a-item .a-btn { min-height: 40px; padding: 0 14px; font-size: 16px; }
+.hint { color: var(--ink-soft); font-size: 15px; margin: 8px 0 0; }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>추첨 관리 (선생님용)</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="app admin">
+    <h1>🔧 추첨 관리 <span class="for-teacher">선생님용</span></h1>
+
+    <section id="loginBox" class="panel">
+      <label for="pin" class="entry-label">관리자 비밀번호</label>
+      <input id="pin" type="password" autocomplete="off" class="pin-input">
+      <button type="button" id="btnLogin" class="a-btn primary">확인</button>
+      <p id="loginMsg" class="status" role="status"></p>
+    </section>
+
+    <section id="panel" class="panel" hidden>
+      <div class="a-row">
+        <p class="total">뽑은 사람 <strong id="aTotal">0</strong> / 32</p>
+        <button type="button" id="btnRefresh" class="a-btn">새로 고침</button>
+        <button type="button" id="btnReset" class="a-btn danger">전체 초기화</button>
+      </div>
+      <p id="adminMsg" class="status" role="status"></p>
+      <ul id="list" class="a-list"></ul>
+      <p class="hint">잘못 들어온 이름이나 시험용 기록은 [삭제]로 지울 수 있어요. 지우면 그 자리가 다시 열려요. 삭제된 사람은 다시 뽑을 수 있어요.</p>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

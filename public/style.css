@@ -1,0 +1,143 @@
+:root {
+  --bg: #eaf3ff;
+  --ink: #1d2a44;
+  --ink-soft: #52607d;
+  --card: #ffffff;
+  --line: #cdd9ee;
+
+  --red: #d93036;      --red-tint: #ffeceb;
+  --yellow: #ffc53d;   --yellow-tint: #fff5d1;
+  --green: #218358;    --green-tint: #e4f5ec;
+  --blue: #3a5bc7;     --blue-tint: #e7edff;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Pretendard", system-ui, -apple-system, sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+button, input { font-family: inherit; }
+button:focus-visible, input:focus-visible { outline: 4px solid #1d2a44; outline-offset: 3px; }
+
+.app { max-width: 1100px; margin: 0 auto; padding: 16px 14px 48px; }
+
+/* ---------- 머리말 ---------- */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+h1 { margin: 0; font-size: clamp(26px, 6vw, 42px); line-height: 1.1; letter-spacing: -0.02em; }
+.tool {
+  flex: none; min-height: 48px; padding: 0 16px;
+  border: 2px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--ink);
+  font-size: 16px; font-weight: 700; cursor: pointer;
+}
+
+/* ---------- 내 팀 뽑기 ---------- */
+.mine { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 26px; }
+.mine[hidden] { display: none; }
+
+.spotlight {
+  width: 100%; max-width: 640px; min-height: 180px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; padding: 18px;
+  border-radius: 28px; border: 4px solid var(--ink);
+  background: var(--card); color: var(--ink);
+  text-align: center; overflow-wrap: anywhere;
+}
+.spot-label { font-size: clamp(22px, 5.5vw, 34px); font-weight: 800; }
+.spot-team  { font-size: clamp(38px, 11vw, 72px); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+.spotlight.t-red    { background: var(--red);    color: #fff; }
+.spotlight.t-yellow { background: var(--yellow); color: var(--ink); }
+.spotlight.t-green  { background: var(--green);  color: #fff; }
+.spotlight.t-blue   { background: var(--blue);   color: #fff; }
+.spotlight.landed .spot-team { animation: land .3s ease-out; }
+@keyframes land { 0% { transform: scale(.6); } 60% { transform: scale(1.14); } 100% { transform: scale(1); } }
+
+.entry { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 12px; }
+.entry[hidden] { display: none; }
+.entry-label { font-size: 18px; font-weight: 800; text-align: center; }
+#nameInput {
+  width: 100%; min-height: 64px; padding: 0 18px;
+  border: 3px solid var(--ink); border-radius: 20px;
+  background: #fff; color: var(--ink);
+  font-size: 26px; font-weight: 800; text-align: center;
+}
+#nameInput::placeholder { color: #9aa6c0; font-weight: 700; }
+#nameInput:disabled { background: #eef2f9; }
+
+.big {
+  width: 100%; min-height: 84px;
+  border: 0; border-radius: 28px;
+  background: var(--ink); color: #fff;
+  font-size: clamp(26px, 6.5vw, 34px); font-weight: 900; letter-spacing: -0.01em;
+  box-shadow: 0 8px 0 #0c1428;
+  cursor: pointer; touch-action: manipulation;
+}
+.big:active:not(:disabled) { transform: translateY(6px); box-shadow: 0 2px 0 #0c1428; }
+.big:disabled { background: #5b6884; box-shadow: 0 8px 0 #3c475f; cursor: progress; }
+
+.status { margin: 0; min-height: 1.5em; font-weight: 700; text-align: center; overflow-wrap: anywhere; }
+.status.error { color: var(--red); }
+
+/* ---------- 현황판 ---------- */
+.board { background: var(--card); border: 2px solid var(--line); border-radius: 24px; padding: 16px 14px 18px; }
+.board-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.board-head h2 { margin: 0; font-size: 24px; }
+.total { margin: 0; font-size: 20px; font-weight: 800; }
+.total strong { font-size: 30px; font-variant-numeric: tabular-nums; }
+.done { margin: 0 0 12px; padding: 12px 14px; border-radius: 16px; background: var(--yellow-tint); font-weight: 800; text-align: center; }
+.done[hidden] { display: none; }
+.conn { margin: 12px 0 0; text-align: center; color: var(--red); font-weight: 700; }
+.conn[hidden] { display: none; }
+
+.teams { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) { .teams { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; } }
+
+.team-card { border-radius: 20px; padding: 10px 10px 12px; border: 3px solid; min-width: 0; }
+.team-red    { background: var(--red-tint);    border-color: var(--red); }
+.team-yellow { background: var(--yellow-tint); border-color: var(--yellow); }
+.team-green  { background: var(--green-tint);  border-color: var(--green); }
+.team-blue   { background: var(--blue-tint);   border-color: var(--blue); }
+
+.team-head { display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-bottom: 8px; }
+.team-title { margin: 0; font-size: 17px; font-weight: 900; white-space: nowrap; }
+.team-count { font-size: 15px; font-weight: 900; font-variant-numeric: tabular-nums; padding: 0 8px; border-radius: 999px; background: #fff; white-space: nowrap; }
+
+.slots { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.slot {
+  min-height: 34px; padding: 0 8px; display: flex; align-items: center; justify-content: center;
+  border: 2px dashed rgba(29, 42, 68, .22); border-radius: 12px;
+  font-size: 16px; font-weight: 800; text-align: center;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.slot.filled { border-style: solid; border-color: transparent; color: #fff; }
+.team-red .slot.filled    { background: var(--red); }
+.team-yellow .slot.filled { background: var(--yellow); color: var(--ink); }
+.team-green .slot.filled  { background: var(--green); }
+.team-blue .slot.filled   { background: var(--blue); }
+.slot.mine-slot { box-shadow: 0 0 0 3px var(--ink); }
+.slot.pop { animation: pop .35s ease-out; }
+@keyframes pop { 0% { transform: scale(.4); } 70% { transform: scale(1.12); } 100% { transform: scale(1); } }
+
+/* ---------- 발표용 큰 화면 (?board=1) ---------- */
+body.board-only .mine, body.board-only #btnSound { display: none; }
+body.board-only .app { max-width: 1500px; }
+body.board-only .board { border: 0; background: transparent; padding: 0; }
+body.board-only .teams { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+body.board-only .team-title { font-size: calc(28px - 2pt); }
+body.board-only .team-count { font-size: calc(24px - 2pt); background: transparent; padding: 0; }
+body.board-only .slot { min-height: 52px; font-size: 24px; }
+body.board-only .total strong { font-size: 44px; }
+body.board-only .board-head h2 { font-size: 32px; }
+@media (max-width: 899px) { body.board-only .teams { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+body.board-only .board-head h2 { display: none; }

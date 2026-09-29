@@ -1,0 +1,13 @@
+{
+  "name": "team-randomizer",
+  "version": "2.0.0",
+  "description": "32명이 각자 휴대폰으로 팀을 뽑는 랜덤 팀 추첨 (4팀, 팀당 8명)",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

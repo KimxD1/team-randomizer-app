@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EAF3FF">
+  <title>랜덤 팀 추첨</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <noscript>이 자료를 사용하려면 브라우저에서 자바스크립트를 켜 주세요.</noscript>
+
+  <main class="app">
+    <header class="top">
+      <h1 id="title">🎲 랜덤 팀 추첨</h1>
+      <button type="button" id="btnSound" class="tool" aria-pressed="true">🔊 소리 켜짐</button>
+    </header>
+
+    <section id="mine" class="mine" aria-label="내 팀 뽑기">
+      <div id="spotlight" class="spotlight idle">
+        <div id="spotLabel" class="spot-label">내 팀은 어디일까요?</div>
+        <div id="spotTeam" class="spot-team">🎲</div>
+      </div>
+
+      <form id="entryForm" class="entry" autocomplete="off">
+        <label for="nameInput" class="entry-label">이름(또는 별명)을 적고 버튼을 눌러요</label>
+        <input id="nameInput" type="text" maxlength="10" placeholder="예) 하늘" enterkeyhint="go">
+        <button type="submit" id="btnDraw" class="big">내 팀 뽑기!</button>
+      </form>
+
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section class="board" aria-label="현황판">
+      <div class="board-head">
+        <h2 id="boardTitle">현황판</h2>
+        <p class="total">전체 <strong id="totalCount">0</strong> / 32</p>
+      </div>
+      <p id="doneBanner" class="done" hidden>🎉 32명 모두 팀이 정해졌어요! 팀마다 8명씩이에요.</p>
+      <div id="teams" class="teams"></div>
+      <p id="conn" class="conn" hidden>연결이 불안정해요. 다시 연결하는 중이에요...</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
